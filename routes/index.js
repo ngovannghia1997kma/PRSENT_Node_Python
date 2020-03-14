@@ -9,11 +9,11 @@ router.get('/', function(req, res, next) {
   process.stdout.on('data', function(data) {
     console.log(data.toString());
 
-    // res.send(data.toString());
+    res.send(data.toString());
   });
 
   // ?plain="0000000000000000"
-  res.render('index', { title: 'Express' });
+  // res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
