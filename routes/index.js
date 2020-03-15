@@ -7,13 +7,13 @@ router.get('/', function(req, res, next) {
   var process = spawn('python', ['./process.py', req.query.plain]);
 
   process.stdout.on('data', function(data) {
-    console.log(data.toString());
+    // console.log(data.toString());
 
-    // res.send(data.toString());
+    res.send(data.toString());
   });
 
-  // ?plain="0000000000000000"
-  res.render('index', { title: 'Express' });
+  // http://localhost:3000/?plain=0000000000000000
+  // res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
