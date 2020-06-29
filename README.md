@@ -1,6 +1,5 @@
 # PRSENT_Node_Python
 
-## run project
 
 - If node_module has not been downloaded yet
 
