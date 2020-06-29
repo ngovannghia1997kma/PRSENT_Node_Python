@@ -1,8 +1,162 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.title {
+  text-align: center;
+}
+
+.title-encrypt {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.title-encrypt button {
+  width: 10%;
+  background-color: #196594;
+  border-radius: 5px;
+}
+.title-encrypt h2 {
+  color: aliceblue;
+}
+
+.content-encrypt {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 30%;
+}
+
+.group-input {
+  margin: 20px;
+}
+.group-input label {
+  width: 20%;
+  float: left;
+  font-size: large;
+}
+
+.group-input input {
+  width: 70%;
+  float: left;
+  height: 25px;
+  font-size: large;
+}
+
+.clear-both {
+  clear: both;
+}
+
+body {
+  font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.encrypted {
+  width: 20%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1e7eba;
+}
+
+.bg-decrypted {
+  background-color: #faa918 !important;
+}
+
+.title-encrypt .h1-Encrypted {
+  margin-top: 70px;
+}
+
+.button-header {
+  float: left;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.button-header#encrypt {
+  background-color: #196594;
+}
+.button-header#encrypt a {
+  color: #ffffff !important;
+}
+
+.button-header#decrypt {
+  background-color: #faa918;
+}
+
+.button-header#decrypt a {
+  color: #3e3e3e !important;
+}
+
+.button-header a {
+  text-decoration: none;
+}
+
+.color-decrypt {
+  background-color: #faa918 !important;
+}
+
+.color-decrypt h2 {
+  color: #3e3e3e !important;
 }

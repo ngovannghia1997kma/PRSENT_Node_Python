@@ -1,7 +1,14 @@
 doctype html
 html
   head
-    title= title
+    title= 'PRESENT'
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div(class='header-menu')
+      div(class='button-header' id='encrypt') 
+        a(href="/") Encrypt 
+      div(class='button-header' id='decrypt') 
+        a(href="/decrypt-page") Decrypt
+    h1(class='title' ) Lightweight encryption function PRESENT
     block content
+

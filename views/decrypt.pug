@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  form(action="/decrypt", method="get")
+    div(class='title-encrypt') 
+      button(type="submmit" class="color-decrypt")
+        h2 Decrypt
+    div(class='content-encrypt' id='content-encrypt')
+        div(class="group-input")
+          label(for="cipher") Ciphertext
+          input(type="text", name="cipher" minlength="16" maxlength="16" required)
+          div(class='clear-both')
+        div(class="tab")
+          button(class="tablinks" onclick="openCity(event, 1)" type='button' id="defaultOpen") 80-bit key
+          button(class="tablinks" onclick="openCity(event, 2)" type='button') 128-bit key
+        div(id="tab1" class="tabcontent")
+          p(class='text-key') Decrypting with a 80-bit key:
+          div(class="group-input")
+            label(for="key") Key
+            input(type="text", name="key" minlength="20" maxlength="20")
+            div(class='clear-both')
+        
+  script.
+    function openCity(evt, nameTab) {
+      var i, tabcontent, tablinks;
+      document.getElementById('tab1').innerHTML = "";
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      evt.currentTarget.className += " active";
+      if(nameTab === 1) {
+        document.getElementById("tab1").innerHTML =  
+        `<p class="text-key">Decrypting with a 80-bit key:</p>
+          <div class="group-input">
+            <label for="key">Key</label
+            ><input type="text" name="key" minlength="16" maxlength="16" required/>
+            <div class="clear-both"></div>
+          </div>`;
+      } else if(nameTab === 2){
+        document.getElementById("tab1").innerHTML =  
+        `<p class="text-key">Decrypting with a 128-bit key:</p>
+          <div class="group-input">
+            <label for="key">Key</label
+            ><input type="text" name="key" minlength="32" maxlength="32" required/>
+            <div class="clear-both"></div>
+          </div>`;
+      }
+    }
+    document.getElementById("defaultOpen").click();
