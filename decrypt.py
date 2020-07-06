@@ -1,4 +1,4 @@
-from pypresent import Present
+from dynamic_Sbox_pypresent import Present
 import sys
 
 argKey = str(sys.argv[2])
