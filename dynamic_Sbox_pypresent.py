@@ -1,6 +1,8 @@
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import json
+
 """ PRESENT block cipher implementation
 
 USAGE EXAMPLE:
@@ -56,6 +58,7 @@ class Present:
                 Input:  plaintext block as raw string
                 Output: ciphertext block as raw string
                 """
+                array_sbox_dynamic=[]
                 state = string2number(block)
                 for i in xrange (self.rounds-1):
                         state = addRoundKey(state,self.roundkeys[i])
@@ -63,6 +66,8 @@ class Present:
                         # Create dynamic Sbox
                         # Ở mỗi vòng lặp ta sẽ gọi hàm dynamic_sbox để sinh ra một Sbox mới
                         sbox_dynamic = dynamic_sbox(self.roundkeys[i],i,Sbox)
+
+                        array_sbox_dynamic.append(sbox_dynamic)
                         
                         # Sau khi đã sinh ra được Sbox mới chúng ta sẽ sử dụng để mã hóa
                         # trong hàm sBoxLayer
@@ -71,7 +76,8 @@ class Present:
                         
                 cipher = addRoundKey(state,self.roundkeys[-1])
                 
-                return number2string_N(cipher,8)
+                result = json.dumps({ 'cipher': number2string_N(cipher,8).encode('hex'), 'sboxs': array_sbox_dynamic })
+                return result
 
         def decrypt(self,block):
                 """Decrypt 1 block (8 bytes)
@@ -79,6 +85,7 @@ class Present:
                 Input:  ciphertext block as raw string
                 Output: plaintext block as raw string
                 """
+                array_sbox_dynamic=[]
                 state = string2number(block)
                 for i in xrange (self.rounds-1, 0, -1):
                         state = addRoundKey(state,self.roundkeys[i])
@@ -90,11 +97,13 @@ class Present:
                         # có Sbox_inv của nó mới có thể giải mã được
                         sbox_dynamic_dec = dynamic_sbox_dec(self.roundkeys[i-1],i-1,Sbox)
                         
+                        array_sbox_dynamic.append(sbox_dynamic_dec)
 
                         # Truyền Sbox_inv vừa tính được để đưa vào hàm sBoxLayer_dec giải mã
                         state = sBoxLayer_dec(state, sbox_dynamic_dec)
                 decipher = addRoundKey(state,self.roundkeys[0])
-                return number2string_N(decipher,8)
+                result = json.dumps({ 'decipher' : number2string_N(decipher,8).encode('hex'), 'sboxs' : array_sbox_dynamic })
+                return result
 
         def get_block_size(self):
                 return 8

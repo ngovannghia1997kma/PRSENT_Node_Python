@@ -160,3 +160,33 @@ body {
 .color-decrypt h2 {
   color: #3e3e3e !important;
 }
+
+.show-sbox-dynamic > .h1-sbox {
+  text-align: center;
+}
+
+.show-sbox-dynamic > .ul-sbox {
+  list-style-type: none;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.show-sbox-dynamic .p-sbox-index {
+  width: 64px;
+  float: left;
+}
+
+.show-sbox-dynamic .p-sbox_dec-index {
+  width: 90px;
+  float: left;
+}
+
+.show-sbox-dynamic .p-sbox {
+  width: 315px;
+  float: left;
+}
+
+.clear-both {
+  clear: both;
+}

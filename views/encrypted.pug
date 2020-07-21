@@ -5,3 +5,11 @@ block content
     h1(class='h1-Encrypted') Encrypted: 
     div(class='encrypted') 
       h1 #{result}
+  div(class='show-sbox-dynamic')
+    h1(class='h1-sbox') List Sboxs Dynamic: 
+    ul(class="ul-sbox")
+      each val, i in sboxs
+        li
+          p(class="p-sbox-index")= "Sbox "+ i +" : "
+          p(class="p-sbox")= "[ "+ val + " ]" 
+          div(class="clear-both")
